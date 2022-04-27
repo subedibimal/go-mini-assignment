@@ -29,17 +29,9 @@ func (r *queryResolver) User(ctx context.Context, id string) (*model.User, error
 }
 
 func (r *queryResolver) Getuser(ctx context.Context) (*model.User, error) {
-	// user_info, err := user.Current()
-	// if err != nil {
-	// 	log.Fatalf(err.Error())
-	// }
 	tokenData := middlewares.CtxValue(ctx)
 	id := tokenData.ID
 	return service.UserGetByID(ctx, id)
-	// username := "user.Name"
-	// return "Your authentication is successful " + username + "!", nil
-	// return user
-	// return r.User, nil
 }
 
 // AuthOps returns generated.AuthOpsResolver implementation.
