@@ -17,6 +17,7 @@ input NewUser {
 }
 
 type AuthOps {
+  login(email: String!, password: String!): Any! @goField(forceResolver: true)
   register(input: NewUser!): Any! @goField(forceResolver: true)
 }
 

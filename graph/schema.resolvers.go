@@ -11,6 +11,10 @@ import (
 	"github.com/subedibimal/go-mini-assignment/service"
 )
 
+func (r *authOpsResolver) Login(ctx context.Context, obj *model.AuthOps, email string, password string) (interface{}, error) {
+	return service.UserLogin(ctx, email, password)
+}
+
 func (r *authOpsResolver) Register(ctx context.Context, obj *model.AuthOps, input model.NewUser) (interface{}, error) {
 	return service.UserRegister(ctx, input)
 }
