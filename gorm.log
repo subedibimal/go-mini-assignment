@@ -1,0 +1,27 @@
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:228
+[0m[33m[0.200ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:231
+[0m[33m[1.005ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gojwt%' ORDER BY SCHEMA_NAME='gojwt' DESC limit 1
+
+2022/04/27 17:53:00 [32m/mnt/Backup/Ubuntu/Project/RunningProjects/tests/test5/go-mini-assignment/migration/migration.go:11
+[0m[33m[1.548ms] [34;1m[rows:-][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = 'gojwt' AND table_name = 'users' AND table_type = 'BASE TABLE'
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:228
+[0m[33m[0.204ms] [34;1m[rows:-][0m SELECT DATABASE()
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:231
+[0m[33m[0.806ms] [34;1m[rows:1][0m SELECT SCHEMA_NAME from Information_schema.SCHEMATA where SCHEMA_NAME LIKE 'gojwt%' ORDER BY SCHEMA_NAME='gojwt' DESC limit 1
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:148
+[0m[33m[0.352ms] [34;1m[rows:-][0m SELECT * FROM `users` LIMIT 1
+
+2022/04/27 17:53:00 [32m/home/bimal/go/pkg/mod/gorm.io/driver/mysql@v1.3.3/migrator.go:166
+[0m[33m[1.584ms] [34;1m[rows:-][0m SELECT column_name, column_default, is_nullable = 'YES', data_type, character_maximum_length, column_type, column_key, extra, column_comment, numeric_precision, numeric_scale , datetime_precision FROM information_schema.columns WHERE table_schema = 'gojwt' AND table_name = 'users' ORDER BY ORDINAL_POSITION
+
+2022/04/27 17:53:04 [31;1m/mnt/Backup/Ubuntu/Project/RunningProjects/tests/test5/go-mini-assignment/service/user.go:37 [35;1mrecord not found
+[0m[33m[0.814ms] [34;1m[rows:0][0m SELECT * FROM `users` WHERE email LIKE 'bimalsubedi09@gmail.com' LIMIT 1
+
+2022/04/27 17:53:04 [32m/mnt/Backup/Ubuntu/Project/RunningProjects/tests/test5/go-mini-assignment/service/user.go:26
+[0m[33m[12.066ms] [34;1m[rows:1][0m INSERT INTO `users` (`id`,`name`,`email`,`password`,`location`) VALUES ('0a2fe725-8b5c-4eda-b0ac-8bc816d3f5b8','Bimal Subedi','bimalsubedi09@gmail.com','$2a$10$Lkc3XvULAyvVQis3CNKIpecwtibErUt7l99SGdx4RQ3/QXMOsGXoq','Imadol,Lalitpur')
