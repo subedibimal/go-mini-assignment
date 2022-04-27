@@ -3,6 +3,7 @@
 package model
 
 type AuthOps struct {
+	Login    interface{} `json:"login"`
 	Register interface{} `json:"register"`
 }
 

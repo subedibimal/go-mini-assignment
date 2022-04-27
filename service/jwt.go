@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"os"
+	"fmt"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -39,3 +40,28 @@ func JwtGenerate(ctx context.Context, userID string) (string, error) {
 
 	return token, nil
 }
+
+func JwtValidate(ctx context.Context, token string) (*jwt.Token, error) {
+	return jwt.ParseWithClaims(token, &JwtCustomClaim{}, func(t *jwt.Token) (interface{}, error) {
+		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {
+			return nil, fmt.Errorf("there's a problem with the signing method")
+		}
+		return jwtSecret, nil
+	})
+}
+
+func JwtGetUser(ctx context.Context, token string) (*jwt.Token, error) {
+	return jwt.ParseWithClaims(token, &JwtCustomClaim{}, func(t *jwt.Token) (interface{}, error) {
+		if _, ok := t.Method.(*jwt.SigningMethodHMAC); !ok {
+			return ok, fmt.Errorf("there's a problem with the signing method")
+		}
+		return jwtSecret, nil
+	})
+}
+
+// token, err := jwt.ParseWithClaims(tokenString, claims, func(token *jwt.Token) (interface{}, error) {
+//     return []byte("<YOUR VERIFICATION KEY>"), nil
+// })
+// for key, val := range claims {
+//     fmt.Printf("Key: %v, value: %v\n", key, val)
+// }

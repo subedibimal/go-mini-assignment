@@ -1,4 +1,5 @@
 directive @goField(forceResolver: Boolean, name: String) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+directive @auth on FIELD_DEFINITION
 
 scalar Any
 
@@ -19,6 +20,11 @@ input NewUser {
 type AuthOps {
   login(email: String!, password: String!): Any! @goField(forceResolver: true)
   register(input: NewUser!): Any! @goField(forceResolver: true)
+}
+
+type Query {
+  user(id: ID!): User! @goField(forceResolver: true)
+  getuser: User! @goField(forceResolver: true) @auth
 }
 
 type Mutation {

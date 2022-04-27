@@ -40,3 +40,14 @@ func UserGetByEmail(ctx context.Context, email string) (*model.User, error) {
 
 	return &user, nil
 }
+
+func UserGetByID(ctx context.Context, id string) (*model.User, error) {
+	db := config.GetDB()
+
+	var user model.User
+	if err := db.Model(user).Where("id = ?", id).Take(&user).Error; err != nil {
+		return nil, err
+	}
+
+	return &user, nil
+}
